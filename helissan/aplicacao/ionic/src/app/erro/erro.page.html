@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title >Erro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="errosSemEnviarBackend.length != 0">
+    <p *ngFor="let erro of errosSemEnviarBackend">{{erro}}</p>
+    <h2>Tente novamente ou entre em contato com o suporte de TI.</h2>
+</div>
+
+<div *ngIf="status">
+  <p>Erro: {{status}} -> {{mensagem}}</p>
+
+  <span *ngIf="errosBackend.length != 0">
+      <p *ngFor="let erro of errosBackend">
+          {{erro}}
+      </p>
+  </span>
+  <h2>Tente novamente ou entre em contato com o suporte de TI.</h2>
+</div>
+
+</ion-content>
