@@ -1,0 +1,76 @@
+<header *ngIf="!usuarioLogado; else logado">
+  <mat-toolbar>
+    <a routerLink="/">Login Validation</a>
+    <div>
+      <form>
+        <mat-form-field>
+          <mat-label>Usuário</mat-label>
+          <input matInput [(ngModel)]="dados.usuario" name="usuario" type="text">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Senha</mat-label>
+          <input matInput [(ngModel)]="dados.senha" name="senha" type="password">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="login(); $event.preventDefault()">Entrar</button>
+      </form>
+    </div>
+  </mat-toolbar>
+</header>
+
+<ng-template #logado>
+  <mat-toolbar>
+    <a routerLink="/">Login Validation</a>
+    <div>
+      <span class="material-icons">
+        list
+      </span>
+      <button mat-button1 [matMenuTriggerFor]="menu1">Menu</button>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+      <span class="material-icons">
+        list
+      </span>
+      <button mat-button2 [matMenuTriggerFor]="menu2">Menu</button>
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+      <span class="material-icons">
+        list
+      </span>
+      <button mat-button3 [matMenuTriggerFor]="menu3">Menu</button>
+      <mat-menu #menu3="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+      <span class="material-icons">
+        list
+      </span>
+      <button mat-button4 [matMenuTriggerFor]="menu4">Menu</button>
+      <mat-menu #menu4="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Pesquisar</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="search">
+        <mat-icon matSuffix>cancel</mat-icon>
+      </mat-form-field>
+      <span class="material-icons">
+        notifications_active
+      </span>
+      <span class="material-icons">
+        email
+      </span>
+      <span class="material-icons">
+        account_box
+      </span>
+      <button mat-raised-button color="primary" (click)="logout()">Sair</button>
+    </div>
+  </mat-toolbar>
+  <ng-template>
