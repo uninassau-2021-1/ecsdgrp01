@@ -1,0 +1,29 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-title>Erro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="errosSemEnviarBackend.length != 0">
+    <p *ngFor="let erro of errosSemEnviarBackend">
+      {{erro}}
+    </p>
+    <h3>Tente novamente ou entre em contato com o suporte de TI.</h3>
+    <ion-button expand="full" (click)="home()">Voltar</ion-button>
+  </div>
+
+  <div *ngIf="status">
+    <p class="centralizar">Erro: {{status}}</p>
+    <p class="centralizar">{{mensagem}}</p>
+
+    <span *ngIf="errosBackend.length != 0">
+      <p *ngFor="let erro of errosBackend">
+        {{erro}}
+      </p>
+    </span>
+
+    <h3>Tente novamente ou entre em contato com o suporte de TI.</h3>
+    <ion-button expand="full" (click)="home()">Voltar</ion-button>
+  </div>
+</ion-content>

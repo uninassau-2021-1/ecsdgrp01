@@ -1,0 +1,78 @@
+<header *ngIf="!usuarioLogado; else logado">
+    <mat-toolbar color="primary">
+        <a routerLink="/">Sistema de Login</a>
+        <div>
+            <form>
+                <mat-form-field>
+                    <input matInput [(ngModel)]="dados.usuario" name="usuario" type="text" placeholder="Usuário*">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput [(ngModel)]="dados.senha" name="senha" type="password" placeholder="Senha*">
+                </mat-form-field>
+                <button mat-button (click)="login(); $event.preventDefault()">
+                    <mat-icon>login</mat-icon>
+                    Entrar
+                </button>
+            </form>
+        </div>
+    </mat-toolbar>
+</header>
+
+<ng-template #logado>
+    <mat-toolbar color="primary">
+        <button mat-button [matMenuTriggerFor]="menu1">
+            <span class="material-icons">menu</span>
+            Menu 1
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu2">
+            <span class="material-icons">menu</span>Menu 2
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu3">
+            <span class="material-icons">menu</span>Menu 3
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu4">
+            <span class="material-icons">menu</span>Menu 4
+        </button>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Pesquisar</mat-label>
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput type="search">
+                <mat-icon matSuffix>cancel</mat-icon>
+            </mat-form-field>
+            <span class="material-icons">
+                notifications
+            </span>
+            <span class="material-icons">
+                markunread
+            </span>
+            <span class="material-icons">
+                account_circle
+            </span>
+            <button mat-button (click)="logout(); $event.preventDefault()">
+                <mat-icon>logout</mat-icon>
+                Sair
+            </button>
+        </div>
+    </mat-toolbar>
+</ng-template>
+
+<mat-menu #menu1="matMenu">
+    <button mat-menu-item>Botão 1</button>
+    <button mat-menu-item>Botão 2</button>
+</mat-menu>
+
+<mat-menu #menu2="matMenu">
+    <button mat-menu-item>Botão 3</button>
+    <button mat-menu-item>Botão 4</button>
+</mat-menu>
+
+<mat-menu #menu3="matMenu">
+    <button mat-menu-item>Botão 5</button>
+    <button mat-menu-item>Botão 6</button>
+</mat-menu>
+
+<mat-menu #menu4="matMenu">
+    <button mat-menu-item>Botão 7</button>
+    <button mat-menu-item>Botão 8</button>
+</mat-menu>
